@@ -33,3 +33,7 @@ This project aims to generate *synthetic Renaissance-style* printed text images 
 * Trained for 150 epochs using batch size = 8.
 * At each step, the generator and discriminator are updated in tandem.
 * Intermediate results are saved at the end of each epoch.
+
+### 5. Image Generation Pipeline
+* Given a test image and optional transcription, the model generates a historically-degraded synthetic version.
+*The generator runs in evaluation mode, and outputs are stored in a dedicated output directory for inspection.
