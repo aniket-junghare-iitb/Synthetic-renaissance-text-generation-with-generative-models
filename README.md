@@ -43,4 +43,5 @@ The GAN implicitly learns to apply historical degradation effects such as:
 * Ink bleeding and inconsistent printing
 * Smudges and faded strokes
 * Alignment noise and paper texture artifacts
+
 These effects are learned directly from training data, avoiding the need for explicit rules or filters.
