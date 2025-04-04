@@ -24,3 +24,14 @@ This project aims to generate *synthetic Renaissance-style* printed text images 
 #### Discriminator:
 * A convolutional classifier trained to distinguish between real Renaissance images and the generated ones.
 * It guides the generator through adversarial training by penalizing unrealistic features.
+
+### 4. Training Strategy
+#### Loss Functions:
+* Adversarial Loss (Binary Cross-Entropy): Ensures the generator produces realistic outputs that can fool the discriminator.
+* Cycle-Consistency Loss (L1): Encourages the generator to preserve the structural fidelity of the input image.
+* Optimization: Both networks are trained using the Adam optimizer with tuned learning rates and momentum parameters (betas).
+
+#### Training Details:
+* Trained for 150 epochs using batch size = 8.
+* At each step, the generator and discriminator are updated in tandem.
+* Intermediate results are saved at the end of each epoch.
