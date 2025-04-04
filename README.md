@@ -62,3 +62,6 @@ SSIM is used to assess how well the generated images preserve the structural int
 PSNR provides a quantitative measure of the pixel-wise fidelity between the generated and real images. While it doesn’t capture perceptual similarity, it is useful for tracking how accurately the GAN reconstructs fine details. In the context of this project, PSNR helps ensure that the generated degradations are not overly noisy or deviating drastically in pixel intensity from the original reference images.
 ### 3. Learned Perceptual Image Patch Similarity (LPIPS)
 LPIPS is particularly important for this project, as it measures the perceptual similarity between generated and real images using deep neural network features. This metric aligns closely with human visual judgment, making it ideal for evaluating whether the GAN is producing stylistically convincing outputs that mirror the look and feel of old Renaissance prints. A lower LPIPS score indicates that the generated image is perceptually close to the original.
+
+
+Together, these metrics provide a comprehensive evaluation pipeline—quantifying fidelity (PSNR), structural coherence (SSIM), and perceptual realism (LPIPS)—to ensure that the model’s outputs meet both visual and historical authenticity standards.
