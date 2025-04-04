@@ -36,4 +36,11 @@ This project aims to generate *synthetic Renaissance-style* printed text images 
 
 ### 5. Image Generation Pipeline
 * Given a test image and optional transcription, the model generates a historically-degraded synthetic version.
-*The generator runs in evaluation mode, and outputs are stored in a dedicated output directory for inspection.
+* The generator runs in evaluation mode, and outputs are stored in a dedicated output directory for inspection.
+
+### 6. Visual Degradation Simulation
+The GAN implicitly learns to apply historical degradation effects such as:
+* Ink bleeding and inconsistent printing
+* Smudges and faded strokes
+* Alignment noise and paper texture artifacts
+These effects are learned directly from training data, avoiding the need for explicit rules or filters.
