@@ -4,17 +4,17 @@ This project aims to generate *synthetic Renaissance-style* printed text images 
 
 ## 🔎Approach
 
-### 1.Dataset Preparation
+### 1. Dataset Preparation
 * PDF to Image Conversion: All available Renaissance PDFs are converted into high-resolution .jpg images using the pdf2image library. Each page is stored with a consistent naming scheme, enabling traceability between original documents and their image representations.
 * Text Extraction from .docx: Transcriptions corresponding to the scanned documents are extracted from .docx files using the python-docx library. These serve as the semantic textual inputs for guiding image generation.
 * Image Preprocessing: Each image is resized to a fixed resolution (256×256), normalized to the range [-1, 1], and converted to tensors. These transformations are necessary for consistent GAN training.
 
-### 2.Text Embedding Using BERT
+### 2. Text Embedding Using BERT
 * Transcription texts are tokenized and embedded using the pretrained bert-base-uncased model from HuggingFace Transformers.
 * The [CLS] token representation is averaged across sequence length to form a dense vector (768 dimensions), capturing semantic information of the input text.
 * These embeddings are later spatially expanded and fused with visual data to condition the generation process.
 
-### GAN Architecture
+### 3. GAN Architecture
  #### Generator:
 * Inputs: A real image and its corresponding BERT embedding.
 * The BERT embedding is projected to a spatial map and concatenated as an additional channel to the image.
