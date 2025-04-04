@@ -15,7 +15,7 @@ This project aims to generate *synthetic Renaissance-style* printed text images 
 * These embeddings are later spatially expanded and fused with visual data to condition the generation process.
 
 ### GAN Architecture
- ####Generator:
+ #### Generator:
 * Inputs: A real image and its corresponding BERT embedding.
 * The BERT embedding is projected to a spatial map and concatenated as an additional channel to the image.
 * The network contains multiple residual blocks, enabling it to learn complex transformations while preserving visual structure.
