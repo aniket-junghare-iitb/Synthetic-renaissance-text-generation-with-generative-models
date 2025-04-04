@@ -52,3 +52,13 @@ The GAN implicitly learns to apply historical degradation effects such as:
 * Alignment noise and paper texture artifacts
 
 These effects are learned directly from training data, avoiding the need for explicit rules or filters.
+
+
+## ✔Evaluation Metrics 
+To evaluate the performance of the GAN model in generating synthetic Renaissance-style printed text images, I employed a combination of pixel-level, structural, and perceptual metrics. Each of these offers unique insights into how well the generated images replicate the visual characteristics of historical print media.
+### 1. Structural Similarity Index (SSIM)
+SSIM is used to assess how well the generated images preserve the structural integrity of the original printed text. Since the goal is to simulate realistic degradations found in 17th-century documents—like smudging, ink bleed, and layout inconsistencies—SSIM helps evaluate whether the core structural details are maintained in the synthetic outputs. A higher SSIM score indicates that the generator has succeeded in producing images that are visually consistent with the original in terms of layout and texture.
+### 2. Peak Signal-to-Noise Ratio (PSNR)
+PSNR provides a quantitative measure of the pixel-wise fidelity between the generated and real images. While it doesn’t capture perceptual similarity, it is useful for tracking how accurately the GAN reconstructs fine details. In the context of this project, PSNR helps ensure that the generated degradations are not overly noisy or deviating drastically in pixel intensity from the original reference images.
+### 3. Learned Perceptual Image Patch Similarity (LPIPS)
+LPIPS is particularly important for this project, as it measures the perceptual similarity between generated and real images using deep neural network features. This metric aligns closely with human visual judgment, making it ideal for evaluating whether the GAN is producing stylistically convincing outputs that mirror the look and feel of old Renaissance prints. A lower LPIPS score indicates that the generated image is perceptually close to the original.
