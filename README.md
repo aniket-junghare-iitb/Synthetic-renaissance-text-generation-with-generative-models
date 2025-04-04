@@ -13,3 +13,16 @@ This project aims to generate *synthetic Renaissance-style* printed text images 
 * Transcription texts are tokenized and embedded using the pretrained bert-base-uncased model from HuggingFace Transformers.
 * The [CLS] token representation is averaged across sequence length to form a dense vector (768 dimensions), capturing semantic information of the input text.
 * These embeddings are later spatially expanded and fused with visual data to condition the generation process.
+
+### GAN Architecture
+ ####Generator:
+* Inputs: A real image and its corresponding BERT embedding.
+* The BERT embedding is projected to a spatial map and concatenated as an additional channel to the image.
+* The network contains multiple residual blocks, enabling it to learn complex transformations while preserving visual structure.
+* Output: A synthetic version of the image with learned historical degradations (e.g., faded ink, smudges).
+
+ Discriminator:
+
+A convolutional classifier trained to distinguish between real Renaissance images and the generated ones.
+
+It guides the generator through adversarial training by penalizing unrealistic features.
