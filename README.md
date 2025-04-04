@@ -9,10 +9,12 @@ This project aims to generate *synthetic Renaissance-style* printed text images 
 * Text Extraction from .docx: Transcriptions corresponding to the scanned documents are extracted from .docx files using the python-docx library. These serve as the semantic textual inputs for guiding image generation.
 * Image Preprocessing: Each image is resized to a fixed resolution (256×256), normalized to the range [-1, 1], and converted to tensors. These transformations are necessary for consistent GAN training.
 
+
 ### 2. Text Embedding Using BERT
 * Transcription texts are tokenized and embedded using the pretrained bert-base-uncased model from HuggingFace Transformers.
 * The [CLS] token representation is averaged across sequence length to form a dense vector (768 dimensions), capturing semantic information of the input text.
 * These embeddings are later spatially expanded and fused with visual data to condition the generation process.
+
 
 ### 3. GAN Architecture
 This project uses a Generative Adversarial Network (GAN) architecture guided by BERT text embeddings to simulate Renaissance-style degradations on textual images. The architecture consists of:
@@ -27,6 +29,7 @@ This project uses a Generative Adversarial Network (GAN) architecture guided by 
 #### Loss Functions: 
 * Combines adversarial loss (real vs fake classification) with an L1 cycle-consistency loss to retain image structure while applying degradation.
 
+
 ### 4. Training Strategy
 #### Loss Functions:
 * Adversarial Loss (Binary Cross-Entropy): Ensures the generator produces realistic outputs that can fool the discriminator.
@@ -36,6 +39,7 @@ This project uses a Generative Adversarial Network (GAN) architecture guided by 
 * Trained for 150 epochs using batch size = 8.
 * At each step, the generator and discriminator are updated in tandem.
 * Intermediate results are saved at the end of each epoch.
+
 
 ### 5. Image Generation Pipeline
 * Given a test image and optional transcription, the model generates a historically-degraded synthetic version.
