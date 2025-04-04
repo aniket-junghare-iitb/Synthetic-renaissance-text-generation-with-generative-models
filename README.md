@@ -15,12 +15,11 @@ This project aims to generate *synthetic Renaissance-style* printed text images 
 * These embeddings are later spatially expanded and fused with visual data to condition the generation process.
 
 ### 3. GAN Architecture
- #### Generator:
+#### Generator:
 * Inputs: A real image and its corresponding BERT embedding.
 * The BERT embedding is projected to a spatial map and concatenated as an additional channel to the image.
 * The network contains multiple residual blocks, enabling it to learn complex transformations while preserving visual structure.
 * Output: A synthetic version of the image with learned historical degradations (e.g., faded ink, smudges).
-
 #### Discriminator:
 * A convolutional classifier trained to distinguish between real Renaissance images and the generated ones.
 * It guides the generator through adversarial training by penalizing unrealistic features.
@@ -30,7 +29,6 @@ This project aims to generate *synthetic Renaissance-style* printed text images 
 * Adversarial Loss (Binary Cross-Entropy): Ensures the generator produces realistic outputs that can fool the discriminator.
 * Cycle-Consistency Loss (L1): Encourages the generator to preserve the structural fidelity of the input image.
 * Optimization: Both networks are trained using the Adam optimizer with tuned learning rates and momentum parameters (betas).
-
 #### Training Details:
 * Trained for 150 epochs using batch size = 8.
 * At each step, the generator and discriminator are updated in tandem.
