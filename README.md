@@ -15,6 +15,7 @@ This project aims to generate *synthetic Renaissance-style* printed text images 
 * These embeddings are later spatially expanded and fused with visual data to condition the generation process.
 
 ### 3. GAN Architecture
+This project uses a Generative Adversarial Network (GAN) architecture guided by BERT text embeddings to simulate Renaissance-style degradations on textual images. The architecture consists of:
 #### Generator:
 * Inputs: A real image and its corresponding BERT embedding.
 * The BERT embedding is projected to a spatial map and concatenated as an additional channel to the image.
@@ -23,6 +24,8 @@ This project aims to generate *synthetic Renaissance-style* printed text images 
 #### Discriminator:
 * A convolutional classifier trained to distinguish between real Renaissance images and the generated ones.
 * It guides the generator through adversarial training by penalizing unrealistic features.
+#### Loss Functions: 
+* Combines adversarial loss (real vs fake classification) with an L1 cycle-consistency loss to retain image structure while applying degradation.
 
 ### 4. Training Strategy
 #### Loss Functions:
