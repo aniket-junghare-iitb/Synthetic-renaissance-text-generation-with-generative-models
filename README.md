@@ -65,3 +65,15 @@ LPIPS is particularly important for this project, as it measures the perceptual 
 
 
 Together, these metrics provide a comprehensive evaluation pipeline—quantifying fidelity (PSNR), structural coherence (SSIM), and perceptual realism (LPIPS)—to ensure that the model’s outputs meet both visual and historical authenticity standards.
+
+
+## 👀 Results Analysis
+
+
+
+| Compressor  | Best Score   | Average Score |  Median Score| 
+|---------|----------|---------|---------  
+|SSIM       |        0.917597     |       0.6840|       0.6770|
+|PSNR      |      31.516438       |     27.7139|       27.6014|
+|LPIPS            |      0.109255        |    0.3534|       0.3547|
+
