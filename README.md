@@ -95,7 +95,10 @@ LPIPS provides a deep perceptual understanding of similarity, which is crucial f
 
 ![Alt Text](GEN_IMAGES/fake_img_54.png)
 
-
+<p align="center">
+  <img src="GEN_IMAGES/fake_img_54.png" width="300"/>
+  <img src="GEN_IMAGES/fake_img_27.png" width="300"/>
+</p>
 
 
 
