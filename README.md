@@ -71,7 +71,7 @@ Together, these metrics provide a comprehensive evaluation pipeline—quantifyin
 
 
 
-| Compressor  | Best Score   | Average Score |  Median Score| 
+| Metrics  | Best Score   | Average Score |  Median Score| 
 |---------|----------|---------|---------  
 |SSIM       |        0.917597     |       0.6840|       0.6770|
 |PSNR      |      31.516438       |     27.7139|       27.6014|
