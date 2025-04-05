@@ -77,6 +77,13 @@ Together, these metrics provide a comprehensive evaluation pipeline—quantifyin
 |PSNR      |      27.818388       |     27.393436|       27.386749|     27.818388|      26.969746|
 |LPIPS            |      0.109699        |   0.260597|       0.252469|     0.467809|      0.109699|
 
-SSIM: Average = 0.753159, Median = 0.776838, Min = 0.580901, Max = 0.871348
-PSNR: Average = 27.393436, Median = 27.386749, Min = 26.969746, Max = 27.818388
-LPIPS: Average = 0.260597, Median = 0.252469, Min = 0.109699, Max = 0.467809
+## Evaluation Summary
+
+### Structural Similarity Index (SSIM)
+The highest SSIM score observed was 0.8713, indicating that some generated images closely resemble the structural composition of their real counterparts. On average, the SSIM score across the test set was 0.7531, with a median of 0.7768, suggesting consistent preservation of spatial and layout features across most images. Even the lowest score, 0.5809, reflects that the outputs retained a reasonable degree of structural coherence, despite intentional degradation patterns.
+
+### Peak Signal-to-Noise Ratio (PSNR)
+The PSNR values reflect pixel-level similarity. The best score achieved was 27.81 dB, with an average around 27.39 dB and a narrow range down to a minimum of 26.97 dB. These scores suggest that the generator successfully maintains pixel integrity and does not introduce excessive artifacts or noise. While PSNR is less sensitive to perceptual changes, these values indicate a generally clean reconstruction of visual details.
+
+### Learned Perceptual Image Patch Similarity (LPIPS)
+LPIPS provides a deep perceptual understanding of similarity, which is crucial for this project. The best (lowest) LPIPS score was 0.1097, indicating high perceptual similarity between generated and ground-truth images. The average LPIPS value across the dataset was 0.2605, with a median of 0.2524, and the worst case reached 0.4678. These results demonstrate that while some images varied more significantly in terms of perceptual realism, the overall generation quality closely aligns with the intended visual characteristics of early modern prints.
