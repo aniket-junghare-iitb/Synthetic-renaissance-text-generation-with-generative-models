@@ -71,9 +71,12 @@ Together, these metrics provide a comprehensive evaluation pipeline—quantifyin
 
 
 
-| Metrics  | Best Score   | Average Score |  Median Score| 
+| Metrics  | Best Score   | Average Score |  Median Score|   Maximum Score|   Minimum Score| 
 |---------|----------|---------|---------  
-|SSIM       |        0.917597     |       0.6840|       0.6770|
-|PSNR      |      31.516438       |     27.7139|       27.6014|
-|LPIPS            |      0.109255        |    0.3534|       0.3547|
+|SSIM       |        0.871348     |       0.753159|       0.776838|     0.871348|     Min = 0.580901|
+|PSNR      |      27.818388       |     27.393436|       27.386749|     27.818388|     Min = 26.969746|
+|LPIPS            |      0.109699        |   0.260597|       0.252469|     0.467809|     Min = 0.109699|
 
+SSIM: Average = 0.753159, Median = 0.776838, Min = 0.580901, Max = 0.871348
+PSNR: Average = 27.393436, Median = 27.386749, Min = 26.969746, Max = 27.818388
+LPIPS: Average = 0.260597, Median = 0.252469, Min = 0.109699, Max = 0.467809
