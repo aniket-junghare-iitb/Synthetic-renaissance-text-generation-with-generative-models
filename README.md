@@ -131,6 +131,9 @@ You can download the trained generator and discriminator weights here:
 
  ---
  ## 💻 Implementation Guide
+
+Refer to this [notebook](synthetic_generation.ipynb) for the general guideline.
+ 
 1. Install Required Packages:
    
 Ensure that you have the required packages installed by running:
