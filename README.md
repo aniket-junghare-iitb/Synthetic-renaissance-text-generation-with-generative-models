@@ -87,3 +87,34 @@ The PSNR values reflect pixel-level similarity. The best score achieved was 27.8
 
 ### Learned Perceptual Image Patch Similarity (LPIPS)
 LPIPS provides a deep perceptual understanding of similarity, which is crucial for this project. The best (lowest) LPIPS score was 0.1097, indicating high perceptual similarity between generated and ground-truth images. The average LPIPS value across the dataset was 0.2605, with a median of 0.2524, and the worst case reached 0.4678. These results demonstrate that while some images varied more significantly in terms of perceptual realism, the overall generation quality closely aligns with the intended visual characteristics of early modern prints.
+
+
+
+
+## Visualizations
+
+<p align="center">
+  <img src="GENERATED_IMAGES/fake_img_71.png" width="300"/>
+  <img src="GENERATED_IMAGES/fake_img_111.png" width="300"/>
+  <img src="GENERATED_IMAGES/fake_img_142.png" width="300"/>
+</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
