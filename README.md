@@ -10,13 +10,15 @@ This project aims to generate *synthetic Renaissance-style* printed text images 
 
 ### **1. Dataset Preparation**
 - **PDF to Image Conversion**: All available Renaissance PDFs are converted into high-resolution `.jpg` images using the `pdf2image` library. Each page is stored with a consistent naming scheme, enabling traceability between original documents and their image representations.  
-- **Text Extraction from `.docx`**: Transcriptions corresponding to the scanned documents are extracted from `.docx` files using the `python-docx` library. These serve as the semantic textual inputs for guiding image generation.  
+- **Text Extraction from `.docx`**: Transcriptions corresponding to the scanned documents are extracted from `.docx` files using the `python-docx` library. These serve as the semantic textual inputs for guiding image generation.
 - **Image Preprocessing**: Each image is resized to a fixed resolution (**256×256**), normalized to the range `[-1, 1]`, and converted to tensors. These transformations are necessary for consistent GAN training.
 
 ### **2. Text Embedding Using BERT**
 - Transcription texts are tokenized and embedded using the pretrained **`bert-base-uncased`** model from *HuggingFace Transformers*.
-- The `[CLS]` token representation is averaged across sequence length to form a dense vector (**768 dimensions**), capturing semantic information of the input text.
+- The `[CLS]` token representation is averaged across sequence length to form a dense vector (**768 dimensions**), capturing semantic information of the input text.-
 - These embeddings are later spatially expanded and fused with visual data to condition the generation process.
+
+
 
 ### **3. GAN Architecture**
 This project uses a *Generative Adversarial Network (GAN)* architecture guided by BERT text embeddings to simulate Renaissance-style degradations on textual images.
@@ -66,15 +68,17 @@ These effects are learned directly from training data, avoiding the need for exp
 
 To evaluate the performance of the GAN model in generating synthetic Renaissance-style printed text images, I employed a combination of *pixel-level*, *structural*, and *perceptual* metrics. Each of these offers unique insights into how well the generated images replicate the visual characteristics of historical print media.
 
+
 ### **1. Structural Similarity Index (SSIM)**
-Assesses whether the generated images preserve the *structural integrity* of the original printed text. A higher SSIM score indicates strong *layout and texture similarity*.
+SSIM is used to assess how well the generated images preserve the *structural integrity* of the original printed text. Since the goal is to simulate *realistic degradations* found in 17th-century documents—like smudging, ink bleed, and layout inconsistencies—SSIM helps evaluate whether the core structural details are maintained in the synthetic outputs. A higher SSIM score indicates that the generator has succeeded in producing images that are visually consistent with the original in terms of layout and texture.
 
 ### **2. Peak Signal-to-Noise Ratio (PSNR)**
-Provides a measure of *pixel-wise fidelity* between generated and real images. Though not perceptually rich, it ensures the GAN avoids excessive noise or distortions.
+PSNR provides a quantitative measure of the *pixel-wise fidelity* between the generated and real images. While it doesn’t capture perceptual similarity, it is useful for tracking how accurately the GAN reconstructs fine details. In the context of this project, PSNR helps ensure that the generated degradations are not overly noisy or deviating drastically in pixel intensity from the original reference images.
 
 ### **3. Learned Perceptual Image Patch Similarity (LPIPS)**
-Measures *perceptual similarity* using deep features and aligns with human visual judgment. A lower LPIPS score indicates higher *visual realism*.
+LPIPS is particularly important for this project, as it measures the *perceptual similarity* between generated and real images using deep neural network features. This metric aligns closely with human visual judgment, making it ideal for evaluating whether the GAN is producing stylistically convincing outputs that mirror the look and feel of old Renaissance prints. A lower LPIPS score indicates that the generated image is perceptually close to the original.
 
+Together, these metrics provide a comprehensive evaluation pipeline—quantifying fidelity (PSNR), structural coherence (SSIM), and perceptual realism (LPIPS)—to ensure that the model’s outputs meet both visual and historical authenticity standards.
 ---
 
 ## 👀 **Results Analysis**
@@ -90,13 +94,13 @@ Measures *perceptual similarity* using deep features and aligns with human visua
 ## **Evaluation Summary**
 
 ### **SSIM**
-The highest score (**0.8713**) shows close structural resemblance, with an average of **0.7531** and median **0.7768**, suggesting reliable preservation of *layout and spatial coherence*.
+The highest SSIM score observed was **0.8713**, indicating that some generated images closely resemble the structural composition of their real counterparts. On average, the SSIM score across the test set was **0.7531**, with a median of **0.7768**, suggesting consistent preservation of spatial and layout features across most images. Even the lowest score, **0.5809**, reflects that the outputs retained a reasonable degree of *structural coherence*, despite intentional degradation patterns.
 
 ### **PSNR**
-Best score was **27.81 dB**, with average **27.39 dB**, showing *pixel accuracy* and limited noise introduction.
+The PSNR values reflect *pixel-level similarity*. The best score achieved was **27.81 dB**, with an average around **27.39 dB** and a narrow range down to a minimum of **26.97 dB**. These scores suggest that the generator successfully maintains pixel integrity and does not introduce excessive artifacts or noise. While PSNR is less sensitive to perceptual changes, these values indicate a generally clean reconstruction of visual details.
 
 ### **LPIPS**
-Lowest LPIPS (**0.1097**) indicates *high perceptual realism*. The average (**0.2605**) and median (**0.2524**) confirm that the generator captures the *visual style* of Renaissance prints well.
+LPIPS provides a deep perceptual understanding of similarity, which is crucial for this project. The best (lowest) LPIPS score was **0.1097**, indicating *high perceptual similarity* between generated and ground-truth images. The average LPIPS value across the dataset was **0.2605**, with a median of **0.2524**, and the worst case reached 0.4678. These results demonstrate that while some images varied more significantly in terms of perceptual realism, the overall generation quality closely aligns with the intended visual characteristics of early modern prints.
 
 ---
 
@@ -120,16 +124,17 @@ Lowest LPIPS (**0.1097**) indicates *high perceptual realism*. The average (**0.
 ## 🚀 **Future Improvements**
 
 ### **1. Multi-Scale Discriminator**
-Can help the model learn both *global composition* and *local texture*.
+The current discriminator processes a single resolution. Introducing a multi-scale discriminator can help capture both *global* and *fine-grained features*, improving the *realism* of local texture degradations.
 
 ### **2. Higher Resolution Support**
-Using *progressive GANs* or *ESRGAN* could enhance *legibility* and support OCR.
+The generator currently produces 256×256 images. Using *progressive resizing* or super-resolution GANs (like ESRGAN) as a post-processing step could improve legibility and visual fidelity, especially for OCR-based downstream tasks.
 
 ### **3. Attention-Based Fusion**
-*Cross-attention* between text and image features could yield more *context-aware degradations*.
+Right now, text embeddings are flattened and reshaped into a single-channel map. Using a cross-attention mechanism or feature-level fusion between image and text embedding could yield more *nuanced degradation behaviors* aligned with linguistic features.
+
 
 ### **4. Larger Dataset**
-Data augmentation or synthetic layout variations can improve *generalization*.
+Increasing the dataset size by simulating layout variations or using data augmentation could improve the model's *generalization* and robustness to unseen layouts.
 
 ---
 
@@ -151,3 +156,11 @@ Ensure that you have the required packages installed by running:
 
 ```bash
 pip install -r requirements.txt
+```
+
+###2. Run the Main Script:
+   
+Execute the main script:
+```bash
+python synthetic_generation.py 
+```
