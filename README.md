@@ -72,7 +72,7 @@ Together, these metrics provide a comprehensive evaluation pipeline—quantifyin
 
 
 | Metrics  | Best Score   | Average Score |  Median Score|   Maximum Score|   Minimum Score| 
-|---------|----------|---------|---------  
+|---------|----------|---------|---------|---------|---------|  
 |SSIM       |        0.871348     |       0.753159|       0.776838|     0.871348|     Min = 0.580901|
 |PSNR      |      27.818388       |     27.393436|       27.386749|     27.818388|     Min = 26.969746|
 |LPIPS            |      0.109699        |   0.260597|       0.252469|     0.467809|     Min = 0.109699|
