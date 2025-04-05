@@ -123,7 +123,10 @@ Increasing the dataset size by simulating layout variations or using data augmen
 
 
 
-
+## 🔗 Download Trained Model
+You can download the trained generator and discriminator weights here:
+- [Generator Weights (generator_renaissance.pth)](https://drive.google.com/file/d/1H7wMh_L24c4AzKGyD9YH60hgfO_ycgzI/view?usp=sharing)
+- [Discriminator Weights (discriminator_renaissance.pth)](https://drive.google.com/file/d/1gJFDkU_iOpb2VfhM2T8YiFHf3o7tjq4f/view?usp=sharing)
 
 
 
