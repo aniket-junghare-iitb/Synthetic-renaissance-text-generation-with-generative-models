@@ -129,8 +129,19 @@ You can download the trained generator and discriminator weights here:
 - [Generator Weights (generator_renaissance.pth)](https://drive.google.com/file/d/1H7wMh_L24c4AzKGyD9YH60hgfO_ycgzI/view?usp=sharing)
 - [Discriminator Weights (discriminator_renaissance.pth)](https://drive.google.com/file/d/1gJFDkU_iOpb2VfhM2T8YiFHf3o7tjq4f/view?usp=sharing)
 
+ ---
+ ## 💻 Implementation Guide
+ 1. Install Required Packages:
+Ensure that you have the required packages installed by running:
+```
+ !pip install -r requirements.txt
+```
 
-
+2. Run the Main Script:
+Execute the main script
+```
+!python synyhetic_generation.py 
+```
 
 
 
