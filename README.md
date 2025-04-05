@@ -93,7 +93,7 @@ LPIPS provides a deep perceptual understanding of similarity, which is crucial f
 
 ## Visualizations
 
-![Alt Text](GENERATED_IMAGES/fake_img_71.png)
+![Alt Text](GEN_IMAGES/fake_img_54.png)
 
 
 
