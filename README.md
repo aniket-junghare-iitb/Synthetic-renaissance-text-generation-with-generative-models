@@ -108,8 +108,18 @@ LPIPS provides a deep perceptual understanding of similarity, which is crucial f
 
 
 
+## 🚀 Future Improvements
+### 1. Multi-Scale Discriminator
+The current discriminator processes a single resolution. Introducing a multi-scale discriminator can help capture both global and fine-grained features, improving the realism of local texture degradations.
 
+### 2. Higher Resolution Support
+The generator currently produces 256×256 images. Using progressive resizing or super-resolution GANs (like ESRGAN) as a post-processing step could improve legibility and visual fidelity, especially for OCR-based downstream tasks.
 
+### 3. Attention-Based Fusion of Text and Image
+Right now, text embeddings are flattened and reshaped into a single-channel map. Using a cross-attention mechanism or feature-level fusion between image and text embedding could yield more nuanced degradation behaviors aligned with linguistic features.
+
+### 4. Training with Larger or Augmented Dataset
+Increasing the dataset size by simulating layout variations or using data augmentation could improve the model's generalization and robustness to unseen layouts.
 
 
 
