@@ -167,7 +167,7 @@ class Discriminator(nn.Module):
 
 
 # Function to generate text-based images
-def generate_text_image(model, test_image_path):
+def generate_text_image(model, test_image_path, img_name):
     model.eval()
     image = Image.open(test_image_path).convert("RGB")
     image = transform(image).unsqueeze(0).to(device)
@@ -175,8 +175,8 @@ def generate_text_image(model, test_image_path):
     with torch.no_grad():
         fake_image = model(image, torch.zeros(1, 768).to(device))
 
-    save_image(fake_image, "generated_renaissance_transcription_image.png")
-    print("Saved: generated_renaissance_transcription_image.png")
+    save_image(fake_image, img_name)
+    print(f"Saved: {img_name}")
 
 
 
@@ -232,7 +232,7 @@ for epoch in range(num_epochs):
 
 
 # Generate text-based image
-generate_text_image(G, "/home/aniketj/Task_1_Final/Images/Theatro_270.jpg")
+generate_text_image(G, "/home/aniketj/GSOC_TASK3/TEST_IMAGES/9.jpg","generated_renaissance_image9.png") # generated image is stored in JUPYTER NOTEBOOK folder
 
 
 
