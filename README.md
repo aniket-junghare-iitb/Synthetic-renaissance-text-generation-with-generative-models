@@ -91,12 +91,17 @@ LPIPS provides a deep perceptual understanding of similarity, which is crucial f
 
 
 
-## Visualizations
+## Generated Images
 
 ![Alt Text](GEN_IMAGES/54.jpg)
 ![Alt Text](GEN_IMAGES/27.jpg)
-![Alt Text](GEN_IMAGES/5.jpg)
+![Alt Text](GEN_IMAGES/13.jpg)
+![Alt Text](GEN_IMAGES/17.jpg)
 ![Alt Text](GEN_IMAGES/2.jpg)
+![Alt Text](GEN_IMAGES/37.jpg)
+![Alt Text](GEN_IMAGES/49.jpg)
+![Alt Text](GEN_IMAGES/5.jpg)
+![Alt Text](GEN_IMAGES/9.jpg)
 ![Alt Text](GEN_IMAGES/fake_img_109.png)
 ![Alt Text](GEN_IMAGES/fake_img_111.png)
 ![Alt Text](GEN_IMAGES/fake_img_116.png)
