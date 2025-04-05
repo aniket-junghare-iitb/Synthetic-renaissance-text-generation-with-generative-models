@@ -131,16 +131,18 @@ You can download the trained generator and discriminator weights here:
 
  ---
  ## 💻 Implementation Guide
- ####### 1. Install Required Packages:
+1. Install Required Packages:
+   
 Ensure that you have the required packages installed by running:
 ```
  !pip install -r requirements.txt
 ```
 
- ####### 2. Run the Main Script:
+2. Run the Main Script:
+   
 Execute the main script
 ```
-!python synyhetic_generation.py 
+!python synthetic_generation.py 
 ```
 
 
